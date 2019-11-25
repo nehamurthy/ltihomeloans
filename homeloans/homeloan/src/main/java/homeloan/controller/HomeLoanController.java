@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -31,12 +32,15 @@ import homeloan.model.Loan;
 import homeloan.model.Property;
 import homeloan.model.Users;
 import homeloan.service.HomeLoanServiceIntf;
+import homeloan.service.MailService;
 
 @Controller("homeLoanController")
 public class HomeLoanController {
 
 	@Autowired
 	public HomeLoanServiceIntf homeLoanServiceIntf;
+	@Autowired
+	public MailService mailservice;
 	
 	/*
 	 * Method to access the registration page (i.e. rendering on the browser)
@@ -329,4 +333,24 @@ public class HomeLoanController {
      // mav.addObject("user", new Users());
     return mav;		
 	}
+	
+	
+	@RequestMapping(value = "/ForgetPassword", method = RequestMethod.GET)
+	  public ModelAndView getForgetpage(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView("ForgetPassword");
+ 
+  return mav;		
+	}
+	@RequestMapping(value = "/sendmail", method = RequestMethod.POST)
+	  public ModelAndView sendMail(HttpServletRequest request, HttpServletResponse response) throws MessagingException
+	{
+		
+		String email=request.getParameter("email");
+		mailservice.send(email,"reset your password","Your password is: ");
+		ModelAndView mav = new ModelAndView("login");
+		mav.addObject("message","Please re-enter the password that has been sent to your mail.");
+		return mav;	
+	}
+
+	
 }
