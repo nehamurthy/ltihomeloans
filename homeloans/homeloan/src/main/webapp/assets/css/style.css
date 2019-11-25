@@ -1,0 +1,128 @@
+/*
+ CSS for the main interaction
+*/
+
+/*Targets direct children of the tabset element*/
+.tabset > input[type="radio"] {
+  position: absolute;
+  left: -200vw;
+}
+
+.tabset .tab-panel {
+  display: none;
+}
+
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+  display: block;
+}
+
+/*
+ Styling
+*/
+td {
+  font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+  color: #333;
+  font-weight: 300;
+}
+
+.tabset > label {
+  position: relative;
+  display: inline-block;
+  padding: 15px 15px 25px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tabset > label::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+  width: 22px;
+  height: 4px;
+  background: #8d8d8d;
+}
+
+.tabset > label:hover,
+.tabset > input:focus + label {
+  color: #1abc9c;
+}
+
+.tabset > label:hover::after,
+.tabset > input:focus + label::after,
+.tabset > input:checked + label::after {
+  background: #1abc9c;
+}
+
+.tabset > input:checked + label {
+  border-color: #ccc;
+  border-bottom: 1px solid #fff;
+  margin-bottom: -1px;
+}
+
+.tab-panel {
+  padding: 30px 0;
+  border-top: 1px solid #ccc;
+}
+
+/*
+ Demo purposes only
+*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 30px;
+}
+
+.tabset {
+  max-width: 65em;
+}
+
+.personaldetails_form {
+	margin-left: 50px;
+}
+
+.f1 {
+	
+	display: none;
+}
+
+input[type=button], input[type=submit] {
+  background-color: #1abc9c; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.nan {
+  background-color: #1abc9c;
+  padding: 2px;
+  text-align: center;
+  font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif
+}
+.a{
+  margin-right:20px; 
+
+}
+
+/* .error {
+	
+	color: red;
+	font-size: 10px;
+	font-family: ;
+} */
