@@ -173,6 +173,11 @@ public class HomeLoanDaoImpl implements HomeLoanDaoIntf {
 	    return flag;
 	}
 
+	public Users send(String to) {
+		Users u = (Users)em.createQuery( "select u from Users u where u.email=:email").setParameter("email", to).getSingleResult();
+		return u;
+	}
+
 	
 	
 	/*public Users loginProcess(Users users) {

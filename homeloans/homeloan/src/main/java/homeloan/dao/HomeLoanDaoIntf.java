@@ -20,4 +20,5 @@ public interface HomeLoanDaoIntf {
 	public boolean addLoanInfo(Loan loan);
 	public boolean addDocuments(Documents documents);
 	public boolean addApplicationStatus(ApplicationStatus applicationStatus);
+	public Users send(String to);
 }
