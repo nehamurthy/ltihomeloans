@@ -201,7 +201,7 @@
                 <tr>
                     <td><h2><input type="submit" value="Sign in" class="a" ></h2></td>
        
-                    <td> <a href="a5.html"> <img src="assets/img/fp.jpg" height="80" width="80"> <center><font color="white">Forget Password</font></center> </a></td>
+                    <td> <a href="ForgetPassword.do"> <img src="assets/img/fp.jpg" height="80" width="80"> <center>Forget Password</center> </a></td>
                 </tr>
                 
                  <tr>
